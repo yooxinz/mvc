@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <changeSet id="20180924" author="zhangyongxing89@gmail.com">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="USER"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="USER">
+
+            <column name="id" type="bigint" autoIncrement="true"   remarks="主键"   >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(50)"   remarks="姓名"  >
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="birthday" type="DATE" remarks="生日"></column>
+
+            <column name="state" type="BOOLEAN" remarks="是否启用"/>
+
+            <column name="create_date" type="DATETIME" remarks="创建时间"></column>
+        </createTable>
+
+        <insert tableName="USER">
+            <column name="id" value="2"/>
+            <column name="name" value="李四"/>
+            <column name="birthday" value="2018-09-24"/>
+            <column name="state" valueBoolean="true"/>
+            <column name="create_date" value="2018-09-24 20:27:16"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

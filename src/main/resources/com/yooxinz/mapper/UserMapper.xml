@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yooxinz.mapper.UserMapper" >
+    <resultMap id="userMap"  type="com.yooxinz.dto.User">
+        <id column="id" jdbcType="DECIMAL" property="id"></id>
+        <result column="name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
+
+    <select id="getUserNameById" resultMap="userMap">
+        SELECT
+        *
+        FROM
+        USER
+        WHERE id = #{userId}
+    </select>
+</mapper>

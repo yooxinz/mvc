@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <changeSet id="20180925" author="zhangyongxing89@gmail.com">
+
+        <preConditions onFail="HALT">
+            <tableExists tableName="USER"/>
+        </preConditions>
+
+        <loadData encoding="UTF-8"
+                  file="liquibase/init_data/USER.csv"
+                  separator=","
+                  quotchar="'"
+                  tableName="USER">
+            <column name="id" type="NUMERIC"/>
+            <column name="name" type="STRING"/>
+            <column name="birthday" type="DATE"/>
+            <column name="state" type="BOOLEAN"/>
+            <column name="create_date" type="DATE"/>
+        </loadData>
+
+    </changeSet>
+</databaseChangeLog>

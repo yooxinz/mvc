@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  #数据库连接
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3307/mvc?createDatabaseIfNotExist=true&characterEncoding=utf8&useUnicode=true&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    #数据库连接池
+    tomcat:
+      max-idle: 10
+      min-idle: 5
+      initial-size: 5
+  #数据库初始化
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+    enabled: true
+    drop-first: false
