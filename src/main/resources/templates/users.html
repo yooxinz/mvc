@@ -13,6 +13,11 @@
 <div class="contentDiv" style="padding: 20px 60px;">
 
     <h5> 用户列表 </h5>
+    <form th:action="@{/user/query/create}" method="get">
+        <input type="date" th:name="startTime"/>
+        <input type="date" th:name="endTime"/>
+        <button class="btn btn-primary" type="submit">查询用户</button>
+    </form>
     <table class="table table-hover table-condensed">
         <thead>
         <tr>

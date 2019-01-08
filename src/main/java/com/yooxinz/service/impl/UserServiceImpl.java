@@ -1,11 +1,13 @@
 package com.yooxinz.service.impl;
 
+import com.yooxinz.common.DateTool;
 import com.yooxinz.dto.User;
 import com.yooxinz.mapper.UserMapper;
 import com.yooxinz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,5 +27,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> query() {
         return userMapper.query();
+    }
+
+    @Override
+    public List<User> query(Date startTime, Date endTime) {
+        Date start = null;
+        Date end = null;
+        if (startTime !=null)
+            start = DateTool.getStartDate(startTime);
+        if(endTime !=null)
+            end = DateTool.getEndDate(endTime);
+        return userMapper.queryByTime(start,end);
     }
 }

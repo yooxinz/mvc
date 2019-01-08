@@ -3,6 +3,7 @@ package com.yooxinz.mapper;
 import com.yooxinz.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,5 +15,7 @@ public interface UserMapper {
     User getUserNameById(Long userId);
 
     List<User> query();
+
+    List<User> queryByTime(Date startTime, Date endTime);
 
 }

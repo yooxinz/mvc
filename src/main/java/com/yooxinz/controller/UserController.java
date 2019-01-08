@@ -32,4 +32,14 @@ public class UserController {
         return mv;
     }
 
+    @GetMapping(value = "/query/create")
+    public ModelAndView queryByCreateTime(
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date startTime,
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date endTime,
+            ModelAndView mv){
+        mv.setViewName("users");
+        mv.addObject("users",userSerivce.query(startTime,endTime));
+        return mv;
+    }
+
 }
