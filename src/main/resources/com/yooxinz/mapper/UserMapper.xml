@@ -13,4 +13,8 @@
         USER
         WHERE id = #{userId}
     </select>
+
+    <select id="query" resultType="com.yooxinz.dto.User">
+        select * from user
+    </select>
 </mapper>
