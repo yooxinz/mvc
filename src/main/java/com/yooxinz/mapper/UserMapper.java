@@ -1,5 +1,6 @@
 package com.yooxinz.mapper;
 
+import com.github.pagehelper.Page;
 import com.yooxinz.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,7 +15,7 @@ public interface UserMapper {
 
     User getUserNameById(Long userId);
 
-    List<User> query();
+    Page<User> query();
 
     List<User> queryByTime(Date startTime, Date endTime);
 

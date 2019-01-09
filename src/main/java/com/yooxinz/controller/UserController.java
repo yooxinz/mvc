@@ -26,9 +26,12 @@ public class UserController {
     }
 
     @GetMapping(value = "/query")
-    public ModelAndView query(ModelAndView mv){
+    public ModelAndView query(
+            @RequestParam(defaultValue = "1") int pageNum,
+            @RequestParam(defaultValue = "10") int pageSize,
+            ModelAndView mv){
         mv.setViewName("users");
-        mv.addObject("users",userSerivce.query());
+        mv.addObject("users",userSerivce.query(pageNum,pageSize));
         return mv;
     }
 
@@ -43,5 +46,4 @@ public class UserController {
         mv.addObject("users",userSerivce.query(startTime,endTime));
         return mv;
     }
-
 }

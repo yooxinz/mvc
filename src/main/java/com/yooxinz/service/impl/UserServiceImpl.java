@@ -1,5 +1,7 @@
 package com.yooxinz.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.yooxinz.common.DateTool;
 import com.yooxinz.dto.User;
 import com.yooxinz.mapper.UserMapper;
@@ -25,11 +27,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> query() {
-        return userMapper.query();
-    }
-
-    @Override
     public List<User> query(Date startTime, Date endTime) {
         Date start = null;
         Date end = null;
@@ -38,5 +35,11 @@ public class UserServiceImpl implements UserService {
         if(endTime !=null)
             end = DateTool.getEndDate(endTime);
         return userMapper.queryByTime(start,end);
+    }
+
+    @Override
+    public Page<User> query(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        return userMapper.query();
     }
 }
