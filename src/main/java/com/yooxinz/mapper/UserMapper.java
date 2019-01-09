@@ -5,7 +5,6 @@ import com.yooxinz.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by star on 2018/9/23.
@@ -13,10 +12,6 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    User getUserNameById(Long userId);
-
-    Page<User> query();
-
-    List<User> queryByTime(Date startTime, Date endTime);
+    Page<User> queryByTime(Date startTime, Date endTime);
 
 }

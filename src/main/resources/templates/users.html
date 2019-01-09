@@ -13,7 +13,7 @@
 <div class="contentDiv" style="padding: 20px 60px;">
 
     <h5> 用户列表 </h5>
-    <form th:action="@{/user/query/create}" method="get" class="pull-right">
+    <form th:action="@{/user}" method="get" class="pull-right">
         <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}"/>
         <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}"/>
         <button class="btn btn-primary" type="submit">查询用户</button>
@@ -38,22 +38,30 @@
     </table>
 
     <div class="pull-right d-flex flex-row mb-5">
-        <form th:action="@{/user/query}" method="get" style="display: inline">
+        <form th:action="@{/user}" method="get" style="display: inline">
+            <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}" class="hidden"/>
+            <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}" class="hidden"/>
             <input type="hidden" th:value=1 th:name="pageNum">
             <input type="hidden" th:value="${users.pageSize}" th:name="pageSize">
             <button class="btn" type="submit" th:disabled="${users.pageNum} == 1"><i class="glyphicon glyphicon-step-backward"></i></button>
         </form>
-        <form th:action="@{/user/query}" method="get" style="display: inline">
+        <form th:action="@{/user}" method="get" style="display: inline">
+            <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}" class="hidden"/>
+            <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}" class="hidden"/>
             <input type="hidden" th:value="${users.pageNum}-1" th:name="pageNum">
             <input type="hidden" th:value="${users.pageSize}" th:name="pageSize">
             <button class="btn" type="submit" th:disabled="${users.pageNum} == 1"><i class="glyphicon glyphicon-chevron-left"></i></button>
         </form>
-        <form th:action="@{/user/query}" method="get" style="display: inline">
+        <form th:action="@{/user}" method="get" style="display: inline">
+            <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}" class="hidden"/>
+            <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}" class="hidden"/>
             <input type="hidden" th:value="${users.pageNum}+1" th:name="pageNum">
             <input type="hidden" th:value="${users.pageSize}" th:name="pageSize">
             <button class="btn" type="submit" th:disabled="${users.pageNum} == ${users.pages}"><i class="glyphicon glyphicon-chevron-right"></i></button>
         </form>
-        <form th:action="@{/user/query}" method="get" style="display: inline">
+        <form th:action="@{/user}" method="get" style="display: inline">
+            <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}" class="hidden"/>
+            <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}" class="hidden"/>
             <input type="hidden" th:value="${users.pages}" th:name="pageNum">
             <input type="hidden" th:value="${users.pageSize}" th:name="pageSize">
             <button class="btn" type="submit" th:disabled="${users.pageNum} == ${users.pages}"><i class="glyphicon glyphicon-step-forward"></i></button>

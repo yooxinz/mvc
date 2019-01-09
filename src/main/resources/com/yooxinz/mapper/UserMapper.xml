@@ -6,18 +6,6 @@
         <result column="name" jdbcType="VARCHAR" property="name" />
     </resultMap>
 
-    <select id="getUserNameById" resultMap="userMap">
-        SELECT
-        *
-        FROM
-        USER
-        WHERE id = #{userId}
-    </select>
-
-    <select id="query" resultType="com.yooxinz.dto.User">
-        select * from user
-    </select>
-
     <select id="queryByTime" resultType="com.yooxinz.dto.User">
         select * from user
         <where>

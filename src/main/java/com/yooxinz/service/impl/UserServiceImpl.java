@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by star on 2018/9/23.
@@ -22,24 +21,14 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public User getUserNameById(Long userId) {
-        return userMapper.getUserNameById(userId);
-    }
-
-    @Override
-    public List<User> query(Date startTime, Date endTime) {
+    public Page<User> query(Date startTime, Date endTime, int pageNum, int pageSize) {
         Date start = null;
         Date end = null;
         if (startTime !=null)
             start = DateTool.getStartDate(startTime);
         if(endTime !=null)
             end = DateTool.getEndDate(endTime);
-        return userMapper.queryByTime(start,end);
-    }
-
-    @Override
-    public Page<User> query(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
-        return userMapper.query();
+        return userMapper.queryByTime(start,end);
     }
 }
