@@ -38,6 +38,8 @@ public class UserController {
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date endTime,
             ModelAndView mv){
         mv.setViewName("users");
+        mv.addObject("startTime",startTime);
+        mv.addObject("endTime",endTime);
         mv.addObject("users",userSerivce.query(startTime,endTime));
         return mv;
     }
