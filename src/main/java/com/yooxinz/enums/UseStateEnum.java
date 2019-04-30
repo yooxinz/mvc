@@ -3,6 +3,8 @@ package com.yooxinz.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 @AllArgsConstructor
 public enum UseStateEnum {
@@ -13,4 +15,12 @@ public enum UseStateEnum {
     private int key;
     private String name;
 
+    public static UseStateEnum getByKey(int key) {
+        for (UseStateEnum c : UseStateEnum.values()) {
+            if (c.getKey() == key) {
+                return c;
+            }
+        }
+        return null;
+    }
 }
