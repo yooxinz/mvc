@@ -6,11 +6,15 @@
         <result column="name" jdbcType="VARCHAR" property="name" />
     </resultMap>
 
-    <select id="getUserNameById" resultMap="userMap">
-        SELECT
-        *
-        FROM
-        USER
-        WHERE id = #{userId}
+    <select id="queryByTime" resultType="com.yooxinz.dto.User">
+        select * from user
+        <where>
+            <if test="startTime != null">
+                AND create_date &gt;= #{startTime}
+            </if>
+            <if test="endTime != null">
+                AND create_date &lt;= #{endTime}
+            </if>
+        </where>
     </select>
 </mapper>
