@@ -1,5 +1,6 @@
 package com.yooxinz.user;
 
+import com.github.pagehelper.Page;
 import com.yooxinz.dto.User;
 import com.yooxinz.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +25,7 @@ public class UserControllerTest {
 
     @Test
     public void getUser(){
-        User user = userSerivce.getUserNameById((long)1);
+        Page<User> user = userSerivce.query(null,null, 1,10);
         log.info("result ==>{}",user);
 
     }
