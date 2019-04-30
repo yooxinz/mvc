@@ -9,6 +9,7 @@
     <select id="queryByTime" resultType="com.yooxinz.dto.User">
         select * from user
         <where>
+            state = ${@com.yooxinz.enums.UseStateEnum@ENABLE.getKey()}
             <if test="startTime != null">
                 AND create_date &gt;= #{startTime}
             </if>
