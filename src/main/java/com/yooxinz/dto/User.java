@@ -1,7 +1,6 @@
 package com.yooxinz.dto;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by star on 2018/9/23.
@@ -16,7 +15,7 @@ public class User {
 
     private Boolean state;
 
-    private Timestamp create_date;
+    private Date createDate;
 
     public Long getId() {
         return id;
@@ -50,12 +49,12 @@ public class User {
         this.state = state;
     }
 
-    public Timestamp getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Timestamp create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     @Override
@@ -65,7 +64,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", birthday=" + birthday +
                 ", state=" + state +
-                ", create_date=" + create_date +
+                ", createDate=" + createDate +
                 '}';
     }
 }

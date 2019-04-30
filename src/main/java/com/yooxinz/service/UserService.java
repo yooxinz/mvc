@@ -4,6 +4,7 @@ package com.yooxinz.service;
 import com.github.pagehelper.Page;
 import com.yooxinz.dto.User;
 
+import java.io.InputStream;
 import java.util.Date;
 
 /**
@@ -13,4 +14,5 @@ public interface UserService {
 
     Page<User> query(Date startTime, Date endTime,int pageNum, int pageSize);
 
+    String importUser(InputStream inputStream);
 }

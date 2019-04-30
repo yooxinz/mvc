@@ -19,8 +19,13 @@ import java.util.Date;
 public class DateHelperTest {
 
     @Test
-    public void testGetFirstdayOfYear(){
+    public void getFirstdayOfYearTest(){
         Date firstDay = DateHelper.getFirstDayOfYear(new Date());
         log.info("firstDay==>{}",firstDay);
+    }
+
+    @Test
+    public void formatDateTimeStrTest(){
+        DateHelper.formatDateTimeStr("2011-01-03","yyyy-MM-dd");
     }
 }

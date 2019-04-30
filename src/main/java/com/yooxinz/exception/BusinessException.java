@@ -1,6 +1,6 @@
 package com.yooxinz.exception;
 
-import com.yooxinz.common.ResultEnum;
+import com.yooxinz.enums.ResultEnum;
 
 public class BusinessException extends RuntimeException{
 

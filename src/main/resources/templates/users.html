@@ -12,8 +12,14 @@
 
 <div class="contentDiv" style="padding: 20px 60px;">
 
+    <h5> 导入用户 </h5>
+    <form th:action="@{/user/import}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">上传</button>
+    </form>
+
     <h5> 用户列表 </h5>
-    <form th:action="@{/user}" method="get" class="pull-right">
+    <form th:action="@{/user/list}" method="get" class="pull-right">
         <input type="date" th:name="startTime" th:value="${#dates.format(startTime, 'yyyy-MM-dd')}"/>
         <input type="date" th:name="endTime" th:value="${#dates.format(endTime, 'yyyy-MM-dd')}"/>
         <button class="btn btn-primary" type="submit">查询用户</button>
@@ -32,7 +38,7 @@
             <td th:text="${user.name}"></td>
             <td th:text="${user.birthday}"></td>
             <td th:text="${user.state}"></td>
-            <td th:text="${user.create_date}"></td>
+            <td th:text="${user.createDate}"></td>
         </tr>
         </tbody>
     </table>

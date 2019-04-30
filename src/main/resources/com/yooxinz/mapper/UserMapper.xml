@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yooxinz.mapper.UserMapper" >
-    <resultMap id="userMap"  type="com.yooxinz.dto.User">
-        <id column="id" jdbcType="DECIMAL" property="id"></id>
-        <result column="name" jdbcType="VARCHAR" property="name" />
-    </resultMap>
 
     <select id="queryByTime" resultType="com.yooxinz.dto.User">
-        select * from user
+        select
+        id,
+        `name`,
+        birthday,
+        `state`,
+        create_date as createDate
+        from user
         <where>
             state = ${@com.yooxinz.enums.UseStateEnum@ENABLE.getKey()}
             <if test="startTime != null">
@@ -18,4 +20,29 @@
             </if>
         </where>
     </select>
+
+    <sql id="Base_Column_List">
+        <trim suffixOverrides=",">
+            `name`,
+            `birthday`,
+            `state`,
+            `create_date`,
+        </trim>
+    </sql>
+
+    <insert id="addBatch" parameterType="java.util.List">
+        insert into user
+        <trim prefix="(" suffix=")" >
+            <include refid="Base_Column_List" />
+        </trim>
+        VALUES
+        <foreach item="item" index="index" collection="userList" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.name},
+                #{item.birthday},
+                #{item.state},
+                #{item.createDate},
+            </trim>
+        </foreach>
+    </insert>
 </mapper>

@@ -1,6 +1,6 @@
 package com.yooxinz.controller;
 
-import com.yooxinz.common.ResultEnum;
+import com.yooxinz.enums.ResultEnum;
 import com.yooxinz.exception.BusinessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
