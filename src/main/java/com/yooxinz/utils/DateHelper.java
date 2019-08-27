@@ -16,7 +16,7 @@ import java.util.GregorianCalendar;
  */
 public class DateHelper {
 
-    private static String YEARMONTHDAY = "yyyy-MM-dd";
+    public static String YEARMONTHDAY = "yyyy-MM-dd";
 
     private static String YEARMONTH = "yyyy-MM";
 
