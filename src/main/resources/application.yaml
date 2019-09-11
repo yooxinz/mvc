@@ -21,3 +21,4 @@ spring:
 logging:
   level:
     com.yooxinz.mapper: DEBUG
+  config: classpath:logback-spring.xml

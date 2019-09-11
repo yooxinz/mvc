@@ -32,6 +32,7 @@ public class UserController {
             @RequestParam(defaultValue = PageDefault.pageNum) int pageNum,
             @RequestParam(defaultValue = PageDefault.pageSize) int pageSize,
             ModelAndView mv){
+        log.info("queryUser");
         mv.setViewName("users");
         mv.addObject("startTime",startTime);
         mv.addObject("endTime",endTime);
