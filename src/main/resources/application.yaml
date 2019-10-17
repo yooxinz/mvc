@@ -17,6 +17,11 @@ spring:
     change-log: classpath:liquibase/master.xml
     enabled: true
     drop-first: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 logging:
   level:
